@@ -124,9 +124,9 @@ class Upload extends Component {
 
     render() {
         return (
-            <div className="intro-container">
-                <div className="container">
-                    <div className="col">
+            <div className="col-container">
+                <div className="row">
+                    <div className="col-md-6">
                         <form method="post" action="#" id="#">
 
                             {/* Navigation Buttons */}
@@ -161,7 +161,7 @@ class Upload extends Component {
                     </div>
 
                     {/* Display Image Before Uploading */}
-                    <div className="col">
+                    <div className="col-md-6">
                         <img className="center" src={this.state.file}/>
                     </div>
 

@@ -29,7 +29,7 @@ class Magician extends Component {
 
     render() {
         return (
-            <div>
+            <div className="col-container">
                 {/* Navigation Buttons */}
                 <div className="col-md-6">
                     {/* <div className="row">
@@ -45,12 +45,12 @@ class Magician extends Component {
                     {/* <h4 className="magician">The Magic Hat will edit your photo.</h4>
                     <Link to={'/magician'} className="btn btn-success btn-block">Run Magic Hat</Link> */}
                 </div>
-                
+
               {/* <Link to={'/reference'} className="btn btn-primary btn-sm">Back</Link> */}
-              
+
             </div>
         );
     }
 }
- 
+
 export default Magician;

@@ -18,7 +18,7 @@ class Reference extends Component {
           loaded: 0
         }
       }
-    
+
     maxSelectFile=(event)=> {
         let files = event.target.files
         if (files.length > 3) {
@@ -79,7 +79,7 @@ class Reference extends Component {
                 loaded: 0
             })
         }
-        
+
     }
 
     onClickHandler = () => {
@@ -87,7 +87,7 @@ class Reference extends Component {
         for (var i=0; i<this.state.selectedFile.length; i++) {
             data.append('file', this.state.selectedFile[i])
         }
-    
+
         // photoType = 'reference';
         axios.post("http://localhost:8000/reference", data, {
             onUploadProgress: ProgressEvent => {
@@ -102,14 +102,14 @@ class Reference extends Component {
             console.log('reference upload success');
             console.log(res.statusText);
         })
-        .catch(err => { 
+        .catch(err => {
             toast.error('upload fail');
         })
     }
 
     render() {
         return (
-            <div className="container">
+            <div className="col-container">
                 <div className="row">
                     <div className="col-md-6">
                         <form method="post" action="#" id="#">
@@ -137,10 +137,10 @@ class Reference extends Component {
                             </div>
 
                             <button type="button" className="btn btn-success btn-block" onClick={this.onClickHandler}>Upload</button>
-                            
-                            
+
+
                         </form>
-                        
+
                     </div>
 
                     {/* Display Image Before Uploading */}
@@ -151,11 +151,9 @@ class Reference extends Component {
                 </div>
             </div>
         );
-        
+
     }
 }
 
 export default Reference;
 // module.exports = { photoType: 'reference' };
-
-      
