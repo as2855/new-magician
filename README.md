@@ -1,3 +1,10 @@
+Custom Stuff
+
+some dependencies/reference code:
+- https://ant.design/components/steps/
+- https://www.npmjs.com/package/antd
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
