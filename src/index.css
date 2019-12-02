@@ -86,7 +86,18 @@ li{
 }
 
 .intro-container{
-	margin: 10px;
+	/* margin: 10px; */
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.content-container {
+	margin-left: 150px;
+	margin-right: 150px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding: 10px;
+	display: block;
 }
 
 .logo img{
@@ -127,12 +138,12 @@ li{
 
 .steps-content {
 	margin-top: 16px;
-	border: 1px dashed #e9e9e9;
+	border: 1px dashed #3f2ad8;
 	border-radius: 6px;
 	background-color: #fafafa;
 	min-height: 200px;
 	text-align: center;
-	padding-top: 80px;
+	/* padding-top: 80px; */
 }
 
 .steps-action {

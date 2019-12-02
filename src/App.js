@@ -20,12 +20,7 @@ const { Step } = Steps;
 const steps = [
   {
     title: 'Home',
-    subtitle: 'Home-content',
-    content: '<div className="intro-container">' + 
-      '<div className="logo"><img src="../logo/app-icon.png"/></div>' + 
-      '<h4 className="intro">Welcome to Magic Hat!</h4>' +
-      '<h6 className="intro">Generates the “perfect” filter to enhance engagement based on image characteristics</h6>' +
-      '</div>',
+    conent: 'Home-content',
     component: <Home />,
   },
   {
@@ -84,7 +79,7 @@ class App extends Component {
     return (
 
 
-      <div className="container">
+      <div className="content-container">
 
       <div className="title-img"><img src="../logo/magic_hat_text.png"/></div>
 
