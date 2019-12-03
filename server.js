@@ -75,7 +75,7 @@ app.listen(8000, function() {
 
 app.get('/magician', function(req, res) {
   var spawn = require("child_process").spawn;
-  var scriptProcess = spawn('python',["python-script/ml.py",
+  var scriptProcess = spawn('python', ["python-script/ml.py",
                             "public/input.jpg",
                             "public/reference.jpg"] );
 

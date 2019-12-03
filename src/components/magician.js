@@ -19,12 +19,23 @@ class Magician extends Component {
         // python
 
         // get photo from server
-        axios.get("http://localhost:8000")
-            .then(res => {
-                const photo = res.data;
-                this.setState({ photo });
-        })
-        alert("Your edited photo is generating... ");
+        // axios.get("http://localhost:8000")
+        //     .then(res => {
+        //         const photo = res.data;
+        //         this.setState({ photo });
+        // })
+        // alert("Your edited photo is generating... ");
+        // fetch('http://localhost:8000/magician/download')
+    		// 	.then(response => {
+    		// 		response.blob().then(blob => {
+    		// 			let url = window.URL.createObjectURL(blob);
+    		// 			let a = document.createElement('a');
+    		// 			a.href = url;
+    		// 			a.download = 'reference.jpg';
+    		// 			a.click();
+    		// 		});
+    		// 		//window.location.href = response.url;
+    		// });
 
     }
 
@@ -52,11 +63,11 @@ class Magician extends Component {
                     </div>
 
                     <div className="img-row">
-                      <img src={"./output.jpg"} width={500} mode='fit' alt='Your output image is loading...' />
+                      <img src={"./reference.jpg"} width={500} mode='fit' alt='Your output image is loading...' />
                     </div>
 
 
-                    <button type="button" className="btn btn-success btn-block" onClick={this.onClickHandler}>Download</button>
+                    <a href="./reference.jpg" download><button type="button" className="btn btn-success btn-block" onClick={this.onClickHandler}>Download</button></a>
                     {/* <h4 className="magician">The Magic Hat will edit your photo.</h4>
                     <Link to={'/magician'} className="btn btn-success btn-block">Run Magic Hat</Link> */}
                 </div>
