@@ -9,6 +9,7 @@ import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+// import {PythonShell} from 'python-shell';
 
 import Home from './components/home';
 import Upload from './components/upload';
@@ -48,6 +49,13 @@ const steps = [
 
 // var pageContent = [homePage]
 
+// import {PythonShell} from 'python-shell';
+//
+// PythonShell.runString('x=1+1;print(x)', null, function (err) {
+//   if (err) throw err;
+//   console.log('finished');
+// });
+
 
 class App extends Component {
 
@@ -67,6 +75,32 @@ class App extends Component {
   prev() {
     const current = this.state.current - 1;
     this.setState({ current });
+  }
+
+  onMagicHandler() {
+    // onClickHandler for last step Magician
+    // this.setState(3);
+    // axios.get("http://localhost:8000")
+    //     .then(res => {
+    //         const photo = res.data;
+    //         this.setState({ photo });
+    // })
+    message.success('Magic Hat is editing your photo!')
+    // var scriptPath = "python-script/test.py";
+    // var PythonShell = require("python-shell");
+    // var pyshell = new PythonShell(scriptPath);
+    //
+    // pyshell.on("message", function(message) {
+    //   console.log(message);
+    // });
+    //
+    // pyshell.end(function (err) {
+    //   if (err){
+    //       throw err;
+    //   };
+    //
+    //   console.log('finished');
+    // });
   }
 
   // getContent() {
@@ -99,7 +133,7 @@ class App extends Component {
             </Button>
           )}
           {current === steps.length - 1 && (
-            <Button type="primary" onClick={() => message.success('Magic Hat is editing your photo!')}>
+            <Button type="primary" onClick={this.onMagicHandler}>
               Run Magic Hat
             </Button>
           )}

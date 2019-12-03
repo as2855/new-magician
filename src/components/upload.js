@@ -23,7 +23,7 @@ class Upload extends Component {
           loaded: 0
         }
       }
-    
+
     maxSelectFile=(event)=> {
         let files = event.target.files
         if (files.length > 1) {
@@ -87,14 +87,14 @@ class Upload extends Component {
     onChangeHandler=event=> {
         console.log(event.target.files)
         var files = event.target.files;
-        if (this.maxSelectFile(event) && this.checkMimeType(event) && this.checkFileSize(event)) {
+        if (this.maxSelectFile(event) && this.checkMimeType(event)) {
             this.setState({
                 selectedFile: files,
                 file: URL.createObjectURL(event.target.files[0]),
                 loaded: 0
             })
         }
-        
+
     }
 
     onClickHandler = () => {
@@ -102,7 +102,7 @@ class Upload extends Component {
         for (var i=0; i<this.state.selectedFile.length; i++) {
             data.append('file', this.state.selectedFile[i])
         }
-    
+
         // photoType = 'input';
         axios.post("http://localhost:8000/upload", data, {
             onUploadProgress: ProgressEvent => {
@@ -117,7 +117,7 @@ class Upload extends Component {
             console.log('input upload success');
             console.log(res.statusText);
         })
-        .catch(err => { 
+        .catch(err => {
             toast.error('upload fail');
         })
     }
@@ -153,11 +153,11 @@ class Upload extends Component {
                             </div>
 
                             <button type="button" className="btn btn-success btn-block" onClick={this.onClickHandler}>Upload</button>
-                            
-                            
-                            
+
+
+
                         </form>
-                        
+
                     </div>
 
                     {/* Display Image Before Uploading */}
@@ -168,7 +168,7 @@ class Upload extends Component {
                 </div>
             </div>
         );
-        
+
     }
 }
 
@@ -178,7 +178,7 @@ class Upload extends Component {
 //             <div class="row">
 //                 <div class="col-md-6">
 //                     <form method="post" action="#" id="#">
-                    
+
 //                         <div class="form-group files">
 //                             <label>Upload the Photo You Want to be Edited </label>
 //                             <input type="file" class="form-control" multiple onChange={this.onChangeHandler} />
@@ -190,9 +190,9 @@ class Upload extends Component {
 //                         </div>
 
 //                         <button type="button" class="btn btn-success btn-block" onClick={this.onClickHandler}>Upload</button>
-                        
+
 //                     </form>
-                    
+
 //                 </div>
 
 //             </div>
@@ -203,4 +203,3 @@ class Upload extends Component {
 export default Upload;
 // export var photoType;
 // module.exports = { photoType: 'input' };
-      

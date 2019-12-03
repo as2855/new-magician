@@ -61,14 +61,25 @@ app.post('/reference', function(req, res) {
     })
 });
 
-const spawn = require("child_process").spawn;
-const pythonProcess = spawn('python',["python-script/ml.py", "public/input.jpg", "public/reference.jpg"]);
-
-pythonProcess.stdout.on('data', (data) => {
-  // Do something with the data returned from python script
-  console.log(data.toString());
-});
+// const spawn = require("child_process").spawn;
+// const pythonProcess = spawn('python',["python-script/ml.py", "public/input.jpg", "public/reference.jpg"]);
+//
+// pythonProcess.stdout.on('data', (data) => {
+//   // Do something with the data returned from python script
+//   console.log(data.toString());
+// });
 
 app.listen(8000, function() {
     console.log('App running on port 8000');
 });
+
+app.get('/magician', function(req, res) {
+  var spawn = require("child_process").spawn;
+  var scriptProcess = spawn('python',["python-script/ml.py",
+                            "public/input.jpg",
+                            "public/reference.jpg"] );
+
+  scriptProcess.stdout.on("data", function(data) {
+    console.log(data.toString());
+  });
+})
