@@ -39,9 +39,23 @@ class Magician extends Component {
                             </span>
                         </div>
                     </div> */}
-                    <button type="button" className="btn btn-success btn-block" onClick={this.onClickHandler}>Magic Happens Here</button>
-                    <br></br>
-                    <img src={"./output.jpg"} width={500} height={300} mode='fit' alt='Your output image is loading...' />
+                    <div className="img-row">
+                      <div className="img-col">
+                        <img src={"./input.jpg"} width={250} mode='fit' alt='input image' />
+                        <p>Input Image</p>
+                      </div>
+                      <div className="img-col">
+                        <img src={"./reference.jpg"} width={250} mode='fit' alt='reference image' />
+                        <p>Reference Image</p>
+                      </div>
+                    </div>
+
+                    <div className="img-row">
+                      <img src={"./output.jpg"} width={500} mode='fit' alt='Your output image is loading...' />
+                    </div>
+
+                    
+                    <button type="button" className="btn btn-success btn-block" onClick={this.onClickHandler}>Download</button>
                     {/* <h4 className="magician">The Magic Hat will edit your photo.</h4>
                     <Link to={'/magician'} className="btn btn-success btn-block">Run Magic Hat</Link> */}
                 </div>

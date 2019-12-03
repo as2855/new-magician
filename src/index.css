@@ -17,6 +17,10 @@ body div{
 
 }
 
+body {
+	background-color: #f7f7f7;
+}
+
 h1, h2, h3, h4{
 	font-family: 'Overpass', sans-serif;
 	color: #3f2ad8;
@@ -109,6 +113,20 @@ li{
 	margin-left: auto;
 }
 
+.img-col {
+	flex: 50%;
+	padding: 5px;
+}
+
+.img-row {
+	display: flex;
+}
+
+.img-container {
+	margin-right: auto;
+	margin-left: auto;
+}
+
 .logo img{
 	width: 100px;
 	height: auto;
@@ -149,7 +167,7 @@ li{
 	margin-top: 16px;
 	border: 1px dashed #3f2ad8;
 	border-radius: 6px;
-	background-color: #fafafa;
+	background-color: #f7f7f7;
 	min-height: 200px;
 	text-align: center;
 	/* padding-top: 80px; */

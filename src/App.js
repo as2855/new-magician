@@ -40,8 +40,8 @@ const steps = [
   },
 ];
 
-// var homePage = '<div className="intro-container">' + 
-// '<div className="logo"><img src="../logo/app-icon.png"/></div>' + 
+// var homePage = '<div className="intro-container">' +
+// '<div className="logo"><img src="../logo/app-icon.png"/></div>' +
 // '<h4 className="intro">Welcome to Magic Hat!</h4>' +
 // '<h6 className="intro">Generates the “perfect” filter to enhance engagement based on image characteristics</h6>' +
 // '</div>';
@@ -99,8 +99,8 @@ class App extends Component {
             </Button>
           )}
           {current === steps.length - 1 && (
-            <Button type="primary" onClick={() => message.success('Processing complete!')}>
-              Done
+            <Button type="primary" onClick={() => message.success('Magic Hat is editing your photo!')}>
+              Run Magic Hat
             </Button>
           )}
           {current > 0 && (
@@ -113,13 +113,13 @@ class App extends Component {
         {/* {this.refs.stepsContent.innerHTML = 'test'} */}
       </div>
 
-      
+
 
 
       // <Router>
       //   <div>
           // <div className="title-img"><img src="../logo/magic_hat_text.png"/></div>
-          
+
       //     {/* <h1>Magic Hat</h1> */}
       //     <nav className="custom-navbar">
       //       <ul className="navbar">
