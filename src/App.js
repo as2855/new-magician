@@ -41,21 +41,6 @@ const steps = [
   },
 ];
 
-// var homePage = '<div className="intro-container">' +
-// '<div className="logo"><img src="../logo/app-icon.png"/></div>' +
-// '<h4 className="intro">Welcome to Magic Hat!</h4>' +
-// '<h6 className="intro">Generates the “perfect” filter to enhance engagement based on image characteristics</h6>' +
-// '</div>';
-
-// var pageContent = [homePage]
-
-// import {PythonShell} from 'python-shell';
-//
-// PythonShell.runString('x=1+1;print(x)', null, function (err) {
-//   if (err) throw err;
-//   console.log('finished');
-// });
-
 
 class App extends Component {
 
@@ -77,35 +62,14 @@ class App extends Component {
     this.setState({ current });
   }
 
+  onChange = current => {
+    console.log('onChange:', current);
+    this.setState({ current });
+  };
+  
   onMagicHandler() {
-    // onClickHandler for last step Magician
-    // this.setState(3);
-    // axios.get("http://localhost:8000")
-    //     .then(res => {
-    //         const photo = res.data;
-    //         this.setState({ photo });
-    // })
     message.success('Magic Hat is editing your photo!')
-    // var scriptPath = "python-script/test.py";
-    // var PythonShell = require("python-shell");
-    // var pyshell = new PythonShell(scriptPath);
-    //
-    // pyshell.on("message", function(message) {
-    //   console.log(message);
-    // });
-    //
-    // pyshell.end(function (err) {
-    //   if (err){
-    //       throw err;
-    //   };
-    //
-    //   console.log('finished');
-    // });
   }
-
-  // getContent() {
-  //   document.getElementById("steps-content").innerHTML = pageContent[this.state.current];
-  // }
 
   render() {
     const { current } = this.state;
@@ -116,65 +80,54 @@ class App extends Component {
       <div className="content-container">
 
       <div className="title-img"><img src="../logo/magic_hat_text.png"/></div>
+      
+      <Steps current={current} 
+            size="small"
+            onChange={this.onChange}
+            style={{paddingBottom:30}}>
+        {steps.map(item => (
+          <Step key={item.title} title={item.title} />
+        ))}
+      </Steps>
 
-        <Steps current={current}>
-          {steps.map(item => (
-            <Step key={item.title} title={item.title} />
-          ))}
-        </Steps>
+      <div className="steps-content">{steps[current].component}</div>
 
-        <div className="steps-content">{steps[current].component}</div>
-        {/* <div className="steps-content" id="steps-content">{steps[current].content}</div> */}
-
-        <div className="steps-action">
-          {current < steps.length - 1 && (
-            <Button type="primary" onClick={() => this.next()}>
-              Next
-            </Button>
-          )}
-          {current === steps.length - 1 && (
-            <Button type="primary" onClick={this.onMagicHandler}>
-              Run Magic Hat
-            </Button>
-          )}
+      <div className="steps-action">
+        <div class="float-right">
           {current > 0 && (
-            <Button style={{ marginLeft: 8 }} onClick={() => this.prev()}>
+            <Button variant="outline-secondary"
+                    onClick={() => this.prev()}
+                    >
               Previous
             </Button>
           )}
+
+          {current < steps.length - 1 && (
+            <Button 
+                    style={{marginLeft: 8}} 
+                    onClick={() => this.next()}
+                    >
+              Next
+            </Button>
+          )}
+
+          {/* remove next in the magician page */}
+          {current === steps.length - 1 
+          // && (
+          //   <Button type="primary" onClick={this.onMagicHandler}>
+          //     Run Magic Hat
+          //   </Button>
+          // )
+          }  
         </div>
 
-        {/* {this.refs.stepsContent.innerHTML = 'test'} */}
       </div>
-
-
-
-
-      // <Router>
-      //   <div>
-          // <div className="title-img"><img src="../logo/magic_hat_text.png"/></div>
-
-      //     {/* <h1>Magic Hat</h1> */}
-      //     <nav className="custom-navbar">
-      //       <ul className="navbar">
-      //         <li><Link to={'/'} className="link"> Home </Link></li>
-      //         <li><Link to={'/upload'} className="link">Upload</Link></li>
-      //         <li><Link to={'/reference'} className="link">Reference</Link></li>
-      //         <li><Link to={'/magician'} className="link">Magician</Link></li>
-      //       </ul>
-      //     </nav>
-      //     {/* <hr /> */}
-      //     <Switch>
-      //         <Route exact path='/' component={Home} />
-      //         <Route path='/upload' component={Upload} />
-      //         <Route path='/reference' component={Reference} />
-      //         <Route path='/magician' component={Magician} />
-      //     </Switch>
-      //   </div>
-      // </Router>
-
-
-    );
+      
+      {/* insert blank lines to fix background color issue in the bottom */}
+      <div>
+        <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+      </div>
+    </div>);
 
 
   }

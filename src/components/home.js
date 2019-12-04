@@ -49,46 +49,12 @@ class Home extends Component {
     // }
 
     render() {
-        // const { current } = this.state;
-
         return (
-            <div className="intro-container">
-              <div className="logo"><img src="../logo/app-icon.png"/></div>
-
-              {/* <Steps current={current}>
-                {steps.map(item => (
-                    <Step key={item.title} title={item.title} />
-                ))}
-              </Steps> */}
-
-              {/* <div className="steps-content"> */}
-                <h4 className="intro">Welcome to Magic Hat!</h4>
-                <h6 className="intro">Generates the “perfect” filter to enhance engagement based on image characteristics</h6>
-                {/* Navigation Buttons */}
-                {/* <Link to={'/upload'} className="btn btn-primary btn-sm btn-block">Next</Link> */}
-              {/* </div> */}
-
-              {/* <div className="steps-action">
-                {current < steps.length - 1 && (
-                    <Button type="primary" onClick={() => this.next()}>
-                    Next
-                    </Button>
-                    // <Link to={'/upload'} className="btn btn-primary btn-sm btn-block">Next</Link>
-                )}
-                {current === steps.length - 1 && (
-                    <Button type="primary" onClick={() => message.success('Processing complete!')}>
-                    Done
-                    </Button>
-                )}
-                {current > 0 && (
-                    <Button style={{ marginLeft: 8 }} onClick={() => this.prev()}>
-                    Previous
-                    </Button>
-                )}
-              </div> */}
-
-              
-
+          <div className="intro-container" 
+          style={{ paddingTop: 100, paddingBottom: 100}}>
+            <div className="logo"><img src="../logo/app-icon.png"/></div>
+              <h4 className="intro">Welcome to Magic Hat!</h4>
+              <h6 className="intro">Generates the “perfect” filter to enhance engagement based on image characteristics</h6>
             </div>
 
         );
