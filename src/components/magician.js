@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
-// import {Progress} from 'reactstrap';
-// import {ToastContainer, toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { Button } from 'antd';
+
 import "antd/dist/antd.css";
 
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+
 
 class Magician extends Component {
   constructor(props) {
@@ -32,7 +30,9 @@ class Magician extends Component {
 
   render() {
     return (
+      
       <div className="col-container">
+        <Button>haha</Button>
           {/* Navigation Buttons */}
           <div className="col-md-6">
             <div className="img-row">

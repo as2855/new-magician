@@ -1,18 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {Progress} from 'reactstrap';
-import {ToastContainer, toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { Progress } from 'reactstrap';
+import { Button } from 'antd';
+
 import "antd/dist/antd.css";
 
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
-// import Home from './components/home';
-// import Upload from './components/upload';
-// import Reference from './components/reference';
-// import Magician from './components/magician';
-
-// var photoType = '';
 
 class Upload extends Component {
 
@@ -20,7 +13,8 @@ class Upload extends Component {
         super(props);
         this.state = {
           selectedFile: null,
-          loaded: 0
+          loaded: 0,
+          progressShown: false
         }
       }
 
@@ -30,7 +24,6 @@ class Upload extends Component {
             const msg = 'Only 1 image can be uploaded at a time.'
             event.target.value = null; // discard selected files
             console.log(msg);
-            toast.warn(msg);
             return false;
         }
     return true;
@@ -49,14 +42,7 @@ class Upload extends Component {
 
         for (var z=0; z<err.length; z++) {
             event.target.files = null;
-            toast.error(err[z]);
         }
-
-        // if (err !== '') {
-        //   event.target.files = null; // discard
-        //   console.log(err);
-        //   return false;
-        // }
         return true;
     }
 
@@ -73,14 +59,8 @@ class Upload extends Component {
 
         for (var z=0; z<err.length; z++) {
             event.target.files = null;
-            toast.error(err[z]);
         }
 
-        // if (err !== '') {
-        //   event.target.files = null; // discard
-        //   console.log(err);
-        //   return false;
-        // }
         return true;
     }
 
@@ -113,12 +93,10 @@ class Upload extends Component {
 
         })
         .then(res => {
-            toast.success('upload success');
             console.log('input upload success');
             console.log(res.statusText);
         })
         .catch(err => {
-            toast.error('upload fail');
         })
     }
 
@@ -128,41 +106,25 @@ class Upload extends Component {
                 <div className="row">
                     <div className="col-md-6">
                         <form method="post" action="#" id="#">
-
-                            {/* Navigation Buttons */}
-                            {/* <div className="row">
-                                <div className="col">
-                                    <span className="float-left">
-                                        <Link to={'/'} className="btn btn-primary btn-sm">Back</Link>
-                                    </span>
-                                    <span className="float-right">
-                                        <Link to={'/reference'} className="btn btn-primary btn-sm">Next</Link>
-                                    </span>
-                                </div>
-                            </div> */}
-
-                            {/* Upload Photo */}
                             <div className="form-group files">
-                                <label>Upload the Photo You Want to be Edited </label>
-                                <input type="file" className="form-control" multiple onChange={this.onChangeHandler} />
+                                {/* <label>💡Upload the Photo You Want to be Edited </label> */}
+                                <input type="file" className="form-control" 
+                                        multiple onChange={this.onChangeHandler}
+                                         />
                             </div>
 
                             <div className="form-group">
-                                <ToastContainer />
-                                <Progress max="100" color="success" value={this.state.loaded}>{Math.round(this.state.loaded, 2)}%</Progress>
+                                <Progress max="100" color="warning" value={this.state.loaded}>{Math.round(this.state.loaded, 2)}%</Progress>
                             </div>
-
-                            <button type="button" className="btn btn-success btn-block" onClick={this.onClickHandler}>Upload</button>
-
-
-
+                            <Button type="primary"
+                                    onClick={this.onClickHandler}
+                            >Upload</Button>
                         </form>
 
                     </div>
 
-                    {/* Display Image Before Uploading */}
                     <div className="col-md-6">
-                        <img className="center" src={this.state.file}/>
+                        <img width="300" src={this.state.file}/>
                     </div>
 
                 </div>
@@ -171,34 +133,6 @@ class Upload extends Component {
 
     }
 }
-
-// const upload = () => {
-//     return (
-//         <div class="container">
-//             <div class="row">
-//                 <div class="col-md-6">
-//                     <form method="post" action="#" id="#">
-
-//                         <div class="form-group files">
-//                             <label>Upload the Photo You Want to be Edited </label>
-//                             <input type="file" class="form-control" multiple onChange={this.onChangeHandler} />
-//                         </div>
-
-//                         <div class="form-group">
-//                             <ToastContainer />
-//                             <Progress max="100" color="success" value={this.state.loaded}>{Math.round(this.state.loaded, 2)}%</Progress>
-//                         </div>
-
-//                         <button type="button" class="btn btn-success btn-block" onClick={this.onClickHandler}>Upload</button>
-
-//                     </form>
-
-//                 </div>
-
-//             </div>
-//         </div>
-//     );
-// }
 
 export default Upload;
 // export var photoType;

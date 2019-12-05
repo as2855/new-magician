@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {Progress} from 'reactstrap';
-import {ToastContainer, toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { Progress } from 'reactstrap';
+import { Button } from 'antd';
+
 import "antd/dist/antd.css";
 
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
-// import photoType from './components/upload';
 
 class Reference extends Component {
 
@@ -25,7 +23,6 @@ class Reference extends Component {
             const msg = 'Only 3 images can be uploaded at a time.'
             event.target.value = null; // discard selected files
             console.log(msg);
-            toast.warn(msg);
             return false;
         }
     return true;
@@ -44,9 +41,7 @@ class Reference extends Component {
 
         for (var z=0; z<err.length; z++) {
             event.target.files = null;
-            toast.error(err[z]);
         }
-
         return true;
     }
 
@@ -63,7 +58,6 @@ class Reference extends Component {
 
         for (var z=0; z<err.length; z++) {
             event.target.files = null;
-            toast.error(err[z]);
         }
 
         return true;
@@ -98,12 +92,10 @@ class Reference extends Component {
 
         })
         .then(res => {
-            toast.success('upload success');
             console.log('reference upload success');
             console.log(res.statusText);
         })
         .catch(err => {
-            toast.error('upload fail');
         })
     }
 
@@ -113,39 +105,25 @@ class Reference extends Component {
                 <div className="row">
                     <div className="col-md-6">
                         <form method="post" action="#" id="#">
-                            {/* Navigation Buttons */}
-                            {/* <div className="row">
-                                <div className="col">
-                                    <span className="float-left">
-                                        <Link to={'/upload'} className="btn btn-primary btn-sm">Back</Link>
-                                    </span>
-                                    <span className="float-right">
-                                        <Link to={'/magician'} className="btn btn-primary btn-sm">Next</Link>
-                                    </span>
-                                </div>
-                            </div> */}
-
-                            {/* Upload Photo */}
-                            <div className="form-group files">
-                                <label>Upload a Reference Photo </label>
-                                <input type="file" className="form-control" multiple onChange={this.onChangeHandler} />
+                            <div className="form-group files-reference">
+                                {/* <label>💡Upload the Photo You Want to be Edited </label> */}
+                                <input type="file" className="form-control" 
+                                        multiple onChange={this.onChangeHandler}
+                                         />
                             </div>
 
                             <div className="form-group">
-                                <ToastContainer />
-                                <Progress max="100" color="success" value={this.state.loaded}>{Math.round(this.state.loaded, 2)}%</Progress>
+                                <Progress max="100" color="warning" value={this.state.loaded}>{Math.round(this.state.loaded, 2)}%</Progress>
                             </div>
-
-                            <button type="button" className="btn btn-success btn-block" onClick={this.onClickHandler}>Upload</button>
-
-
+                            <Button type="primary"
+                                    onClick={this.onClickHandler}
+                            >Upload</Button>
                         </form>
 
                     </div>
 
-                    {/* Display Image Before Uploading */}
                     <div className="col-md-6">
-                        <img className="center" src={this.state.file}/>
+                        <img width="300" src={this.state.file}/>
                     </div>
 
                 </div>

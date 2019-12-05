@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Steps, Button, message } from 'antd';
-
-import axios from 'axios';
-import {Progress} from 'reactstrap';
-import {ToastContainer, toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-// import {PythonShell} from 'python-shell';
 
 import Home from './components/home';
 import Upload from './components/upload';
 import Reference from './components/reference';
 import Magician from './components/magician';
+
+
 
 const { Step } = Steps;
 
