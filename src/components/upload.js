@@ -133,8 +133,8 @@ class Upload extends Component {
                     </div>
 
                     <div className="col-md-6">
-                        <p className="magic-p">{this.state.preview}</p>
-                        <img width="300" src={this.state.file}/>
+                        <img width="360" src={this.state.file}/>
+                        <p className="magic-p"><br></br>{this.state.preview}</p>
                     </div>
 
                 </div>
