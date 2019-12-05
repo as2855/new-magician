@@ -14,9 +14,10 @@ class Upload extends Component {
         this.state = {
           selectedFile: null,
           loaded: 0,
-          progressShown: false
+          barshwon: false,
+          preview: ""
         }
-      }
+    }
 
     maxSelectFile=(event)=> {
         let files = event.target.files
@@ -71,13 +72,16 @@ class Upload extends Component {
             this.setState({
                 selectedFile: files,
                 file: URL.createObjectURL(event.target.files[0]),
-                loaded: 0
+                loaded: 0,
+                preview:"Upload Preview"
             })
         }
 
     }
 
     onClickHandler = () => {
+        console.log('upload button was clicked, show progress bar');
+
         const data = new FormData()
         for (var i=0; i<this.state.selectedFile.length; i++) {
             data.append('file', this.state.selectedFile[i])
@@ -87,7 +91,8 @@ class Upload extends Component {
         axios.post("http://localhost:8000/upload", data, {
             onUploadProgress: ProgressEvent => {
                 this.setState({
-                    loaded: (ProgressEvent.loaded / ProgressEvent.total*100)
+                    loaded: (ProgressEvent.loaded / ProgressEvent.total*100),
+                    barshwon: true
                 })
             }
 
@@ -101,6 +106,8 @@ class Upload extends Component {
     }
 
     render() {
+        const { barshwon } = this.state;
+
         return (
             <div className="col-container">
                 <div className="row">
@@ -114,7 +121,9 @@ class Upload extends Component {
                             </div>
 
                             <div className="form-group">
-                                <Progress max="100" color="warning" value={this.state.loaded}>{Math.round(this.state.loaded, 2)}%</Progress>
+                            {barshwon && (<Progress max="100" color="warning" 
+                                                    value={this.state.loaded}>{Math.round(this.state.loaded, 2)}%</Progress>
+                            )}
                             </div>
                             <Button type="primary"
                                     onClick={this.onClickHandler}
@@ -124,6 +133,7 @@ class Upload extends Component {
                     </div>
 
                     <div className="col-md-6">
+                        <p className="magic-p">{this.state.preview}</p>
                         <img width="300" src={this.state.file}/>
                     </div>
 

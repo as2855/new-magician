@@ -64,6 +64,10 @@ class App extends Component {
     message.success('Magic Hat is editing your photo!')
   }
 
+  refreshPage() {
+    window.location.reload(false);
+  }
+
   render() {
     const { current } = this.state;
 
@@ -89,7 +93,7 @@ class App extends Component {
         <div class="float-right">
           {current > 0 && (
             <Button variant="outline-secondary"
-                    onClick={() => this.prev()}
+                    onClick={() => {this.prev();}}
                     >
               Previous
             </Button>
@@ -98,7 +102,7 @@ class App extends Component {
           {current < steps.length - 1 && (
             <Button 
                     style={{marginLeft: 8}} 
-                    onClick={() => this.next()}
+                    onClick={() => {this.next();}}
                     >
               Next
             </Button>

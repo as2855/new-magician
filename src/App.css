@@ -1,134 +1,155 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: #fafafa;
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: #fafafa;
 }
 
 .App-intro {
-  font-size: large;
+    font-size: large;
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 
 .files input {
-  font-size: 10px;
-  outline: 2px dashed #92b0b3;
-  outline-offset: -10px;
-  -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
-  transition: outline-offset .15s ease-in-out, background-color .15s linear;
-  padding: 120px 0px 85px 35%;
-  text-align: center !important;
-  margin: 0;
-  width: 100% !important;
+    font-size: 10px;
+    outline: 2px dashed #92b0b3;
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    padding: 120px 0px 120px 35%;
+    text-align: center !important;
+    margin: 0;
+    width: 100% !important;
 }
 .files input:focus{     
-  outline: 2px dashed #92b0b3;  
-  outline-offset: -10px;
-  -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
-  transition: outline-offset .15s ease-in-out, background-color .15s linear; border:1px solid #92b0b3;
+    outline: 2px dashed #92b0b3;  
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear; border:1px solid #92b0b3;
 }
 .files{ 
-  position:relative;
+    position:relative;
 }
 
-.color input{ background-color:#f1f1f1;}
+.color input{ 
+    background-color:#f1f1f1;
+}
 
 .files:before {
-  position: absolute;
-  bottom: 10px;
-  left: 0;  pointer-events: none;
-  width: 100%;
-  right: 0;
-  height: 57px;
-  content: "💡Upload a photo you want edit";
-  padding: 20px;
-  display: block;
-  color: #3f2ad8;
-  font-weight: 600;
-  font-size: 16px;
-  text-transform: capitalize;
-  text-align: center;
+    position: absolute;
+    bottom: 10px;
+    left: 0;  pointer-events: none;
+    width: 100%;
+    right: 0;
+    height: 57px;
+    content: "💡Upload a photo you want edit";
+    display: block;
+    color: #3f2ad8;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: capitalize;
+    text-align: center;
 }
 
-.files:after {  pointer-events: none;
-  position: absolute;
-  top: 60px;
-  left: 0;
-  width: 50px;
-  right: 0;
-  height: 56px;
-  content: "";
-  background-image: url("./icon/upload.png");
-  display: block;
-  margin: 0 auto;
-  background-size: 100%;
-  background-repeat: no-repeat;
+.files:after {  
+    pointer-events: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 50px;
+    right: 0;
+    height: 56px;
+    content: "";
+    background-image: url("./icon/upload.png");
+    display: block;
+    margin: 0 auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 .files-reference input {
-  font-size: 10px;
-  outline: 2px dashed #92b0b3;
-  outline-offset: -10px;
-  -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
-  transition: outline-offset .15s ease-in-out, background-color .15s linear;
-  padding: 120px 0px 85px 35%;
-  text-align: center !important;
-  margin: 0;
-  width: 100% !important;
+    font-size: 10px;
+    outline: 2px dashed #92b0b3;
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    padding: 120px 0px 120px 35%;
+    text-align: center !important;
+    margin: 0;
+    width: 100% !important;
 }
 .files-reference input:focus{     
-  outline: 2px dashed #92b0b3;  
-  outline-offset: -10px;
-  -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
-  transition: outline-offset .15s ease-in-out, background-color .15s linear; border:1px solid #92b0b3;
+    outline: 2px dashed #92b0b3;  
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear; border:1px solid #92b0b3;
 }
 
 .files-reference { 
-  position:relative;
+    position:relative;
 }
 
 
 .files-reference:before {
-  position: absolute;
-  bottom: 10px;
-  left: 0;  pointer-events: none;
-  width: 100%;
-  right: 0;
-  height: 57px;
-  content: "❤️ Upload a photo you like (style will be mimicked)";
-  padding: 20px;
-  display: block;
-  color: #3f2ad8;
-  font-weight: 600;
-  font-size: 16px;
-  text-transform: capitalize;
-  text-align: center;
+    position: absolute;
+    bottom: 10px;
+    left: 0;  pointer-events: none;
+    width: 100%;
+    right: 0;
+    height: 57px;
+    content: "❤️ Upload a photo you like (style will be mimicked)";
+    display: block;
+    color: #3f2ad8;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: capitalize;
+    text-align: center;
 }
 
 .files-reference:after {  pointer-events: none;
-  position: absolute;
-  top: 60px;
-  left: 0;
-  width: 50px;
-  right: 0;
-  height: 56px;
-  content: "";
-  background-image: url("./icon/upload.png");
-  display: block;
-  margin: 0 auto;
-  background-size: 100%;
-  background-repeat: no-repeat;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 50px;
+    right: 0;
+    height: 56px;
+    content: "";
+    background-image: url("./icon/upload.png");
+    display: block;
+    margin: 0 auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.magic-p {
+    padding-top: 5px;
+    color: #3f2ad8;
+}
+
+.magic-br {
+    color: #f1f1f1;
+}
+
+.magic-block {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+}
+
+.magic-vertical-line {
+    border-left: 1px solid #3f2ad8;
+    /* height: 500px; */
 }

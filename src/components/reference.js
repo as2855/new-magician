@@ -13,7 +13,9 @@ class Reference extends Component {
         super(props);
         this.state = {
           selectedFile: null,
-          loaded: 0
+          loaded: 0,
+          barshwon: false,	
+          preview: ""
         }
       }
 
@@ -70,7 +72,8 @@ class Reference extends Component {
             this.setState({
                 selectedFile: files,
                 file: URL.createObjectURL(event.target.files[0]),
-                loaded: 0
+                loaded: 0,
+                preview:"Upload Preview"
             })
         }
 
@@ -86,7 +89,8 @@ class Reference extends Component {
         axios.post("http://localhost:8000/reference", data, {
             onUploadProgress: ProgressEvent => {
                 this.setState({
-                    loaded: (ProgressEvent.loaded / ProgressEvent.total*100)
+                    loaded: (ProgressEvent.loaded / ProgressEvent.total*100),
+                    barshwon: true
                 })
             }
 
@@ -100,8 +104,13 @@ class Reference extends Component {
     }
 
     render() {
+        const { barshwon } = this.state;
+
         return (
+            
             <div className="col-container">
+                {/* <button onClick={this.refreshPage}>Click to reload!</button> */}
+
                 <div className="row">
                     <div className="col-md-6">
                         <form method="post" action="#" id="#">
@@ -113,7 +122,7 @@ class Reference extends Component {
                             </div>
 
                             <div className="form-group">
-                                <Progress max="100" color="warning" value={this.state.loaded}>{Math.round(this.state.loaded, 2)}%</Progress>
+                            {barshwon && (<Progress max="100" color="warning" value={this.state.loaded}>{Math.round(this.state.loaded, 2)}%</Progress>)}
                             </div>
                             <Button type="primary"
                                     onClick={this.onClickHandler}
@@ -123,6 +132,7 @@ class Reference extends Component {
                     </div>
 
                     <div className="col-md-6">
+                        <p className="magic-p">{this.state.preview}</p>
                         <img width="300" src={this.state.file}/>
                     </div>
 
